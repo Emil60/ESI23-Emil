@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.esi.adviserservice.dto.RPLRequestDto;
+import com.esi.adviserservice.dto.RPLRequestStatus;
 import com.esi.adviserservice.service.RPLAdvisorService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,11 @@ public class RPLAdvisorController {
 
     @PutMapping("/rplresponse")
     public ResponseEntity<String> updateRPLResponse(@RequestBody RPLRequestDto rPLRequestDto) {
+        //Task 6
+        rPLRequestDto.setRPLRequestStatus(RPLRequestStatus.UnderReview);
+        //Task 6
         rPLAdvisorService.updateRPLResponse(rPLRequestDto);
+
     return ResponseEntity.ok("An RPL Request is under review by the committee");
 
     }

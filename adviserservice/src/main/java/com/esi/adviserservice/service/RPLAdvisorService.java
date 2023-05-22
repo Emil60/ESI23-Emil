@@ -7,6 +7,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.esi.adviserservice.dto.RPLRequestDto;
+import com.esi.adviserservice.dto.RPLRequestStatus;
 import com.esi.adviserservice.model.RPLAdvisor;
 import com.esi.adviserservice.repository.RPLAdvisorRepository;
 
@@ -31,6 +32,10 @@ public class RPLAdvisorService {
         RPLAdvisor rplAdvisor = rPLAdvisorRepository.findById(rPLRequestDto.getUserId()).get();
 
         rplAdvisor.setAdvisoryDescription(null);
+        //Task6
+        rplAdvisor.setRPLRequestStatus(RPLRequestStatus.UnderReview);
+        
+        //Task6
         rPLAdvisorRepository.save(rplAdvisor);
 
     }
