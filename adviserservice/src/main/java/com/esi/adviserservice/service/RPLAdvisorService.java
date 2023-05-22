@@ -36,7 +36,9 @@ public class RPLAdvisorService {
         rplAdvisor.setRPLRequestStatus(RPLRequestStatus.UnderReview);
         
         //Task6
+        // task 6.2
         rPLAdvisorRepository.save(rplAdvisor);
+        // task 6.2
 
     }
     // Task 5
