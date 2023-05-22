@@ -37,9 +37,18 @@ public class RPLRequestService {
                     .build();
     }
 
-
+    // Task 3.1
     public void addRPLRequest(RPLRequestDto rPLRequestDto) {
-
+        RPLRequest rPLRequest = RPLRequest.builder()
+        .id(rPLRequestDto.getId())
+                    .userId(rPLRequestDto.getUserId())
+                    .courseToSubstituteName(rPLRequestDto.getCourseToSubstituteName())
+                    .courseToSubstituteCode(rPLRequestDto.getCourseToSubstituteCode())
+                    .courseToSubstituteVolume(rPLRequestDto.getCourseToSubstituteVolume())
+                    .courseToBeSubstitutedName(rPLRequestDto.getCourseToBeSubstitutedName())
+                    .courseToBeSubstitutedCode(rPLRequestDto.getCourseToBeSubstitutedCode())
+                    .build();
     }
+    // Task 3.1
 
 }
