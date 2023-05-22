@@ -55,6 +55,11 @@ public class RPLRequestService {
         rPLRequestDto.setRPLRequestStatus(RPLRequestStatus.Submitted);
         // Task 3.2
 
+        // Task 3.3
+        RPLRequestRepository.save(rPLRequest);
+        // Task 3.3
+
+
     }
     
 }
