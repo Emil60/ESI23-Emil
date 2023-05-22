@@ -29,6 +29,9 @@ public class RPLAdvisor {
     private Integer courseToSubstituteVolume;
     private String courseToBeSubstitutedName;
     private String courseToBeSubstitutedCode;
+    // Task 4
+    private String advisoryDescription;
+    // Task 4
     @Enumerated(EnumType.STRING)
     private RPLRequestStatus rPLRequestStatus;
 }
