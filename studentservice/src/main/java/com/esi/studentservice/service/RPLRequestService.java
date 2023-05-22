@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -68,5 +69,24 @@ public class RPLRequestService {
         kafkaTemplate.send("studentRequestCreatedTopic", rPLRequestDto);
         // Task 3.4
     }
+
+    /* Task 6.3   */
+    @KafkaListener(topics = "advisorTopic", groupId = "advisorGroup" )
+    public void updateRequest(RPLRequestDto rPLRequestDto){
+        RPLRequest rPLRequest = RPLRequest.builder()
+        .id(rPLRequestDto.getId())
+                    .userId(rPLRequestDto.getUserId())
+                    .courseToSubstituteName(rPLRequestDto.getCourseToSubstituteName())
+                    .courseToSubstituteCode(rPLRequestDto.getCourseToSubstituteCode())
+                    .courseToSubstituteVolume(rPLRequestDto.getCourseToSubstituteVolume())
+                    .courseToBeSubstitutedName(rPLRequestDto.getCourseToBeSubstitutedName())
+                    .courseToBeSubstitutedCode(rPLRequestDto.getCourseToBeSubstitutedCode())
+                    .rPLRequestStatus(rPLRequestDto.getRPLRequestStatus())
+
+                    .build();
+
+        RPLRequestRepository.save(rPLRequest);
+    }
+    /* Task 6.3   */
     
 }
