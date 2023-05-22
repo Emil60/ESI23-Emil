@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.esi.studentservice.dto.RPLRequestDto;
@@ -19,6 +20,10 @@ public class RPLRequestService {
 
     @Autowired
     private RPLRequestRepository RPLRequestRepository;
+
+    // Task3.4
+    private final KafkaTemplate<String, RPLRequestDto> kafkaTemplate;
+    // Task3.4
 
     public   List<RPLRequestDto> getAllRPLRequest(){
         List<RPLRequest> rPLRequests =  new ArrayList<>();
@@ -59,7 +64,9 @@ public class RPLRequestService {
         RPLRequestRepository.save(rPLRequest);
         // Task 3.3
 
-
+        // Task 3.4
+        kafkaTemplate.send("studentRequestCreatedTopic", rPLRequestDto);
+        // Task 3.4
     }
     
 }
