@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.esi.studentservice.dto.RPLRequestDto;
 import com.esi.studentservice.model.RPLRequest;
+import com.esi.studentservice.model.RPLRequestStatus;
 import com.esi.studentservice.repository.RPLRequestRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -48,7 +49,12 @@ public class RPLRequestService {
                     .courseToBeSubstitutedName(rPLRequestDto.getCourseToBeSubstitutedName())
                     .courseToBeSubstitutedCode(rPLRequestDto.getCourseToBeSubstitutedCode())
                     .build();
-    }
-    // Task 3.1
+                // Task 3.1
+        // Task 3.2
+        rPLRequest.setRPLRequestStatus(RPLRequestStatus.Submitted);
+        rPLRequestDto.setRPLRequestStatus(RPLRequestStatus.Submitted);
+        // Task 3.2
 
+    }
+    
 }
